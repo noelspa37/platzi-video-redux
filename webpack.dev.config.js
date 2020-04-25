@@ -2,12 +2,12 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    "home": path.resolve(__dirname, 'src/entries/home.js'),
-    "redux": path.resolve(__dirname, 'src/entries/redux.js'),
+    app: path.resolve(__dirname, 'src/entries/app.js'),
+    //"redux": path.resolve(__dirname, 'src/entries/redux.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js'
+    filename: 'js/[name].js',
   },
   devServer: {
     port: 9000,
@@ -24,12 +24,12 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['es2015', 'react', 'stage-2'],
-          }
+          },
         },
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(jpg|png|gif|svg)$/,
@@ -39,9 +39,9 @@ module.exports = {
             limit: 1000000,
             fallback: 'file-loader',
             name: 'images/[name].[hash].[ext]',
-          }
-        }
+          },
+        },
       },
-    ]
-  }
-}
+    ],
+  },
+};
